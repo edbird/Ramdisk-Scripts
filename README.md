@@ -31,21 +31,21 @@ TODO: subfolder for Ramdisk-Scripts
 
 # Optional: Create desktop launcher. (In this example, create an xfce4 launcher)
 
-1: Menu->Settings->Settings Manager
+1. Menu->Settings->Settings Manager
 
-2: Select Panel
+2. Select Panel
 
-3: Select desired panel
+3. Select desired panel
 
-4: Select "Items"
+4. Select "Items"
 
-5: Add new item, type Launcher
+5. Add new item, type Launcher
 
-6: Repeat: Add new item, type Launcher
+6. Repeat: Add new item, type Launcher
 
 The first launcher will mount the ramdisk (call the mount script)
 
-7: Select first launcher -> Edit
+7. Select first launcher -> Edit
 
 Name: Start Ramdisk
 
@@ -61,7 +61,7 @@ Options:
 
 The second launcher will unmount the ramdisk (call the unmount script)
 
-8: Select second launcher -> Edit
+8. Select second launcher -> Edit
 
 Name: Free Ramdisk
 
