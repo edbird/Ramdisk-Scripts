@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ true ]]
+then
+
+    mkdir -p /media/ramdisk
+    #mount -t tmpfs -o size=4096m tmpfs /media/ramdisk
+    USER=ecb mount /media/ramdisk
+else
+    false
+fi

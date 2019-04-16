@@ -1,0 +1,18 @@
+#!/bin/bash
+if [[ true ]]
+then
+    # send a message to ask if data should be saved
+    # do some form of copy to save the data
+    zenity --question --title="Ramdisk Unmount" --timeout=0 --text="Save ramdisk contants to disk?" --ok-label="Yes" --cancel-label="No"
+    rvar=$?
+    #echo $rvar > /media/ramdisk/returnval
+    if [[ $rvar == 0 ]]
+    then
+        zenity --file-selection --title="Ramdisk Unmount" --text="Choose location to save ramdisk contents" --directory
+    else
+        rm -rf /media/ramdisk/*
+    fi    
+    #umount /media/ramdisk
+else
+    false
+fi
