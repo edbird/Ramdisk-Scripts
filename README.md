@@ -42,32 +42,22 @@ The first launcher will mount the ramdisk (call the mount script)
 
 7. Select first launcher -> Edit
 
-Name: Start Ramdisk
-
-Comment: /media/ramdisk
-
-Command: /home/<username>/Programs/Ramdisk-Scripts/ramdiskinit
-
-Working Directory:
-
-Icon: (select disk icon or similar)
-
-Options:
+- Name: Start Ramdisk
+- Comment: /media/ramdisk
+- Command: /home/<username>/Programs/Ramdisk-Scripts/ramdiskinit
+- Working Directory:
+- Icon: (select disk icon or similar)
+- Options:
 
 The second launcher will unmount the ramdisk (call the unmount script)
 
 8. Select second launcher -> Edit
 
-Name: Free Ramdisk
-
-Comment: /media/ramdisk
-
-Command: /home/<username>/Programs/Ramdisk-Scripts/ramdiskfree
-
-Working Directory:
-
-Icon: (select eject disk icon or similar)
-
-Options:
+- Name: Free Ramdisk
+- Comment: /media/ramdisk
+- Command: /home/<username>/Programs/Ramdisk-Scripts/ramdiskfree
+- Working Directory:
+- Icon: (select eject disk icon or similar)
+- Options:
 
 
