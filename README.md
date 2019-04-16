@@ -18,6 +18,8 @@ tmpfs /media/ramdisk rw,nodev,nosuid,users,noauto,size=4G 0 0
 ```
 Set the size of the ramdisk here. WARNING: 4G may be too large for some systems!
 
+See also https://superuser.com/questions/1426285/how-can-i-mount-a-ramdisk-system-without-sudo-root/1426286#1426286
+
 # Path variable
 Path variable can be set in `.xsessionrc`. Add the following line to `~/.xsessiionrc`
 
