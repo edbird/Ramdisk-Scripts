@@ -26,7 +26,8 @@ Path variable can be set in `.xsessionrc`. Add the following line to `~/.xsessii
 ```
 export PATH=$PATH:/home/<username>/Programs/Ramdisk-Scripts
 ```
-`<username>` must be the correct user - in other words, the scripts should be installed in the path `/home/<username>/Programs/Ramdisk-Scripts
+`<username>` must be the correct user - in other words, the scripts should be installed in the path `/home/<username>/Programs/Ramdisk-Scripts`
+
 TODO: subfolder for Ramdisk-Scripts
 
 # Optional: Create desktop launcher. (In this example, create an xfce4 launcher)
@@ -44,7 +45,7 @@ The first launcher will mount the ramdisk (call the mount script)
 
 - Name: Start Ramdisk
 - Comment: /media/ramdisk
-- Command: /home/<username>/Programs/Ramdisk-Scripts/ramdiskinit
+- Command: `/home/<username>/Programs/Ramdisk-Scripts/ramdiskinit`
 - Working Directory:
 - Icon: (select disk icon or similar)
 - Options:
@@ -55,7 +56,7 @@ The second launcher will unmount the ramdisk (call the unmount script)
 
 - Name: Free Ramdisk
 - Comment: /media/ramdisk
-- Command: /home/<username>/Programs/Ramdisk-Scripts/ramdiskfree
+- Command: `/home/<username>/Programs/Ramdisk-Scripts/ramdiskfree`
 - Working Directory:
 - Icon: (select eject disk icon or similar)
 - Options:
