@@ -16,6 +16,7 @@ Add the following line to `/etc/fstab` to allow user to mount a `tmpfs` system
 ```
 tmpfs /media/ramdisk rw,nodev,nosuid,users,noauto,size=4G 0 0
 ```
+Set the size of the ramdisk here. WARNING: 4G may be too large for some systems!
 
 # Path variable
 Path variable can be set in `.xsessionrc`. Add the following line to `~/.xsessiionrc`
