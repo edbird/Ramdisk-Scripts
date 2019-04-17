@@ -1,10 +1,14 @@
 #!/bin/bash
-if [[ true ]]
-then
 
+# ramdisk path
+RDPATH=/media/ramdisk
+echo $RDPATH
+
+if grep -qs "$RDPATH " /proc/mounts
+then
+    zenity --info --title="Ramdisk Mount" --text="Ramdisk is already mounted!"
+else
     mkdir -p /media/ramdisk
     #mount -t tmpfs -o size=4096m tmpfs /media/ramdisk
     USER=ecb mount /media/ramdisk
-else
-    false
 fi

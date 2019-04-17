@@ -1,18 +1,83 @@
 #!/bin/bash
-if [[ true ]]
-then
-    # send a message to ask if data should be saved
-    # do some form of copy to save the data
-    zenity --question --title="Ramdisk Unmount" --timeout=0 --text="Save ramdisk contants to disk?" --ok-label="Yes" --cancel-label="No"
-    rvar=$?
-    #echo $rvar > /media/ramdisk/returnval
-    if [[ $rvar == 0 ]]
+#zenity --question --title="Ramdisk Unmount" --timeout=0 --text="Save ramdisk contants to disk?" --ok-label="Yes" --cancel-label="No"
+#rvar=$?
+#echo $rvar > /media/ramdisk/returnval
+#if [[ $rvar == 0 ]]
+#then
+#    DIR=$(zenity --file-selection --title="Ramdisk Unmount" --directory)
+#    echo $?
+#    echo $DIR
+#fi
+
+# ramdisk path
+RDPATH=/media/ramdisk
+
+# umount function
+# arguments: 1: pass 1 if contents copied, 0 otherwise
+function dounmount
+{
+    rm -rf $RDPATH/*
+    #local UMOUNT=$(umount $RDPATH 2>&1)
+    #local CODE=$?
+    UMOUNT=$(umount $RDPATH 2>&1)
+    CODE=$?
+    if [[ $CODE == 0 ]]
     then
-        zenity --file-selection --title="Ramdisk Unmount" --text="Choose location to save ramdisk contents" --directory
+        if [[ $1 == 1 ]]
+        then
+            zenity --info --title="Ramdisk Unmounted" --text="Ramdisk unmounted. Contents saved to $DIR"
+        else
+            zenity --info --title="Ramdisk Unmounted" --text="Ramdisk unmounted. All data deleted"
+        fi
     else
-        rm -rf /media/ramdisk/*
-    fi    
-    #umount /media/ramdisk
+        zenity --error --title="Unmount error" --text="umount error: $UMOUNT"
+    fi
+}
+
+
+# send a message to ask if data should be saved
+# do some form of copy to save the data
+
+if grep -qs "$RDPATH" /proc/mounts
+then
+    zenity --question --title="Ramdisk Unmount" --timeout=0 --text="Save ramdisk contents to disk?" --ok-label="Yes" --cancel-label="No"
+    CODE=$?
+    #echo $CODE
+    #echo $CODE > $RDPATH/returnval
+    if [[ $CODE == 0 ]]
+    then
+        #dir=$(zenity --file-selection --title="ramdisk unmount" --directory)
+        DIR=$(zenity --file-selection --title="ramdisk unmount" --directory)
+        CODE=$?
+        #echo $CODE
+        #echo $DIR
+        case $CODE in
+            0)
+                #echo "DIR=$DIR"
+                CP=$(cp -r $RDPATH $DIR)
+                CODE=$?
+                if [[ $CODE != 0 ]]
+                then
+                    zenity --error --title="Copy error" --text="Error copying ramdisk contents. Ramdisk not unmounted. cp error: $CP"
+                else
+                    dounmount 1
+                fi
+                ;;
+            1)
+                #echo "no directory selected"
+                zenity --error --title="Error" --text="No directory selected! Ramdisk not unmounted."
+                ;;
+            -1)
+                zenity --error --title="Error" --text="Error. Ramdisk not unmounted."
+                #echo "an error occured"
+                ;;
+        esac
+        #echo $DIR
+        #echo $DIR > $RDPATH/dir
+    else
+        #echo "return value was false"
+        dounmount 0
+    fi
 else
-    false
+    zenity --info --title="Ramdisk Unmount" --text="Ramdisk is not mounted on $RDPATH"
 fi
