@@ -39,6 +39,9 @@ sudo apt install zenity
 ```
 
 # Ramdisk Mountpoint
+
+- Note: Not strictly necessary as the scripts will do this for you, but useful info if the path should be changed to a different location.
+
 Example: Create the mountpoint `/media/ramdisk`
 ```
 sudo mkdir -p /media/ramdisk
