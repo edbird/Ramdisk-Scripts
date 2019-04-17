@@ -104,4 +104,13 @@ The second launcher will unmount the ramdisk (call the unmount script)
 - Icon: (select eject disk icon or similar)
 - Options:
 
+# To Use
+- Click launcher / desktop icon to create ramdisk. Ramdisk will be created silently. There is no feedback to the user. (TODO: add this in case of error)
+- When finished, click launcher / desktop icon corresponding to `ramdiskfree` script. You will be asked if you want to save the contents of the ramdisk. (If you find this message irritating keep in mind that it prevents wiping all your data on the ramdisk immediatly.)
+- If you select `No`, the files on the ramdisk will be `rm`'d and the disk will be unmounted.
+- If you select `Yes`, you will be prompted to choose a folder as a location to save (copy) the files.
+- If you abort the folder choosing process the ramdisk will not be unmounted.
 
+What happens if I try and "double" mount or free?
+- If you try and create the ramdisk when one exists a message will appear stating that the ramdisk is already mounted. No `mount` command is run.
+- If you try and free the ramdisk when one does not exist a message will appear stating that the ramdisk is not mounted and no `umount` command will be ran.
