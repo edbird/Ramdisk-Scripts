@@ -18,6 +18,8 @@ sudo mkdir -p /media/ramdisk
 ```
 Change this directory to owner `<username>` by running `chown <username> /media/ramdisk` - substitute `<username>` for you username. This username also appears infront of the `mount` command - therefore `<username>` must be the same system user that runs the ramdisk mount script. (See the bash script `ramdiskinit` for more info.)
 
+It is possible to change the mountpoint to a different location. The mount/free scripts contain a variable `RDPATH` where the ramdisk path can be set.
+
 # fstab lines
 Add the following line to `/etc/fstab` to allow user to mount a `tmpfs` system
 ```
