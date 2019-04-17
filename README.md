@@ -5,7 +5,7 @@ chmod +x ramdiskact
 ```
 and
 ```
-chmod +x ramdisk free
+chmod +x ramdiskfree
 ```
 
 # Required packages
