@@ -18,6 +18,8 @@ sudo mkdir -p /media/ramdisk
 ```
 Change this directory to owner `<username>` by running `chown <username> /media/ramdisk` - substitute `<username>` for you username. This username also appears infront of the `mount` command - therefore `<username>` must be the same system user that runs the ramdisk mount script. (See the bash script `ramdiskinit` for more info.)
 
+Change ownership: chown <username> /media/ramdisk - TODO: check if necessary
+
 It is possible to change the mountpoint to a different location. The mount/free scripts contain a variable `RDPATH` where the ramdisk path can be set.
 
 # fstab lines
@@ -28,6 +30,8 @@ tmpfs /media/ramdisk rw,nodev,nosuid,users,noauto,size=4G 0 0
 Set the size of the ramdisk here. WARNING: 4G may be too large for some systems!
 
 See also https://superuser.com/questions/1426285/how-can-i-mount-a-ramdisk-system-without-sudo-root/1426286#1426286
+
+TODO: check if rw,nodev,nosuid,noexec are required/sensible
 
 # Path variable
 Path variable can be set in `.xsessionrc`. Add the following line to `~/.xsessiionrc`
