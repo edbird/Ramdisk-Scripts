@@ -1,5 +1,12 @@
 # Ramdisk-Scripts
-Scripts to mount and unmount ramdisk
+Scripts to mount and unmount ramdisk. After cloning set scripts `ramdiskact` and `ramdiskfree` to be executable using
+```
+chmod +x ramdiskact
+```
+and
+```
+chmod +x ramdisk free
+```
 
 # Required packages
 zenity `sudo apt install zenity`
